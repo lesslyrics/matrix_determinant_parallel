@@ -10,7 +10,7 @@ void make_sure_matrix_is_invertible(float **pDouble, int size);
 
 using namespace std;
 
-const int MAX_VAL = 15;
+const int MAX_VAL = 5;
 
 // LU decomposition
 // a = l * u
@@ -129,6 +129,22 @@ void print_matrix(float** matrix, int size)
     }
 }
 
+float find_det(float** matrix, int size)
+{
+    float det = 1;
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            if (i == j){
+                det *= matrix[i][j];
+            }
+        }
+        cout << endl;
+    }
+    return det;
+}
+
 
 int main(int argc, char** argv)
 {
@@ -163,6 +179,10 @@ int main(int argc, char** argv)
     print_matrix(L, size);
     cout << "Matrix U:" << endl;
     print_matrix(U, size);
+
+    // det(A) = det(L) * det(U), det(U) = 1 => det(A) = det(L)
+    float det = find_det(L, size);
+    cout << "Det of LU = " << det << endl;
 
     // time
     cout << "Runtime result: " << omp_get_wtime() - runtime << endl;
