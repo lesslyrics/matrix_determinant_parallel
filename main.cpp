@@ -16,10 +16,6 @@ const int MAX_VAL = 5;
 // a = l * u
 // array size = size x size
 void lu_decomposition(float **a, float **l, float **u, int size) {
-    // initialize a simple lock for parallel region
-    omp_lock_t lock;
-
-    omp_init_lock(&lock);
 
 // for loops of lu decomposition are executed in parallel
 #pragma omp taskloop shared(a, l, u)
