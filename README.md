@@ -5,17 +5,3 @@
 **To run program:**
 ```./main```
 
-## Results
-* Size = 5:
-
-  Runtime result: 0.0026
-
-
-* Size = 500:
-
-  Runtime result: 0.108913
-
-
-* Size = 5000:
-
-  Runtime result: 91.3757
